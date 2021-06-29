@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { 
+  BrowserRouter,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom';
+
+import { WelcomePage } from './pages/Welcome';
+import { CongratulationsPage } from './pages/Congratulations';
+import { GamePage } from './pages/Game';
+import { NotFoundPage } from './pages/NotFound';
+import { ProfilePage } from './pages/Profile';
+import { RecordsPage } from './pages/Records';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path='/' exact><Redirect to="/welcome"/></Route>
+        <Route path='/welcome' component={WelcomePage}/>
+        <Route path='/profile' component={ProfilePage}/>
+        <Route path='/game' component={GamePage}/>
+        <Route path='/congratulations' component={CongratulationsPage}/>
+        <Route path='/records' component={RecordsPage}/>
+        <Route component={NotFoundPage}></Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
