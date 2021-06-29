@@ -4,11 +4,11 @@ export function CardMode() {
     return (
         <form>
             <input type="radio" name='card-mode' id="cars"/>
-            <label for="cars">Cars</label>
+            <label htmlFor="cars">Cars</label>
             <input type="radio" name='card-mode' id="fruits"/>
-            <label for="fruits">Fruits</label>
+            <label htmlFor="fruits">Fruits</label>
             <input type="radio" name='card-mode' id="colors"/>
-            <label for="colors">Colors</label>
+            <label htmlFor="colors">Colors</label>
         </form>
     )
 }
