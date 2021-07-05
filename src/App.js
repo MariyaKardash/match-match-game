@@ -6,7 +6,7 @@ import {
   Redirect
 } from 'react-router-dom';
 
-import { WelcomePage } from './pages/Welcome';
+import WelcomePage from './pages/Welcome';
 import { CongratulationsPage } from './pages/Congratulations';
 import { GamePage } from './pages/Game';
 import { NotFoundPage } from './pages/NotFound';

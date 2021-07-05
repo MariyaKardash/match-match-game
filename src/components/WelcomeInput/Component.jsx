@@ -1,12 +1,15 @@
 import React from 'react'
-import {styles} from './style'
+import { 
+    Input,
+    Form
+} from '../styled'
 
-export function WelcomeInput(props) {
+export function WelcomeInput() {
     return (
-        <form style={styles.formCompoment}>
-            <input type='text' name='first-name' placeholder='First name' style={styles.inputComponent}></input>
-            <input type='text' name='second-name' placeholder='Second name' style={styles.inputComponent}></input>
-            <input type='email' name='email' placeholder='Email' style={styles.inputComponent}></input>
-        </form>
+        <Form>
+            <Input type='text' placeholder='First name' required></Input>
+            <Input type='text' placeholder='Second name' required></Input>
+            <Input type='email' placeholder='Email' required></Input>
+        </Form>
     )
 }
