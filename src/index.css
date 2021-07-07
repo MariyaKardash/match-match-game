@@ -10,7 +10,7 @@ body {
 }
 
 .header-wrapper {
-	background: linear-gradient(-45deg, #6a67fc73, #fc67e373, #b967fc73, #6a67fc73, #53c9ff73);
+	background: linear-gradient(-45deg, #53c9ff73, #6a67fc73, #53c9ff73, #6a67fc73, #53c9ff73);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 }
@@ -73,7 +73,7 @@ code {
 }
 
 .form_radio_btn input[type=radio]:checked + label {
-	background: #fc67e373;
+	background: #6a67fc73;
   color: black
 }
 

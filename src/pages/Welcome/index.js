@@ -8,9 +8,13 @@ import { WelcomeInput } from "../../components/WelcomeInput";
 import {
   getUser as getUserAction,
   setUser as setUserAction,
-} from "../../redux/reducers/user";
+} from "../../redux/actions/user";
 
-function WelcomePage({ user, getUser, setUser }) {
+import {
+  setGameMode as setGameModeAction,
+} from "../../redux/actions/game";
+
+function WelcomePage({ user, getUser, setUser, setGameMode }) {
   useEffect(() => {
     getUser();
   }, []);
@@ -27,13 +31,14 @@ function WelcomePage({ user, getUser, setUser }) {
           <WelcomeInput/>
           </>
         )}
-        <GameMode/>
+        <GameMode userData={user} setUser={setUser} setGameMode={setGameMode}/>
       </div>
     </>
   );
 }
 
-export default connect(({ userReducer }) => ({ user: userReducer.user }), {
+export default connect(({ welcomeReducer }) => ({ user: welcomeReducer.user }), {
   getUser: getUserAction,
   setUser: setUserAction,
+  setGameMode: setGameModeAction,
 })(WelcomePage);

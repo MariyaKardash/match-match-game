@@ -1,8 +1,11 @@
 import React from 'react'
+import { Wrapper, H3 } from '../styled'
 
 export function CardMode() {
     return (
-        <form>
+        <Wrapper>
+        <H3>Theme</H3>
+        <form id='themeRadio'>
             <div className="form_radio_btn">
                 <input id="numbers" type="radio" name="radio" value="numbers" defaultChecked/>
                 <label htmlFor="numbers">Numbers</label>
@@ -18,5 +21,6 @@ export function CardMode() {
                 <label htmlFor="flowers">Flowers</label>
             </div>
         </form>
+        </Wrapper>
     )
 }

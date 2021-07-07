@@ -1,5 +1,5 @@
-import userReducer from './user';
+import welcomeReducer from './welcome';
 
 export const rootReducers = {
-    userReducer
+    welcomeReducer,
 };
