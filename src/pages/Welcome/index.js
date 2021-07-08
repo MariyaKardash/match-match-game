@@ -37,7 +37,7 @@ function WelcomePage({ user, getUser, setUser, setGameMode }) {
   );
 }
 
-export default connect(({ userReducer }) => ({ user: userReducer.user }), {
+export default connect(({ user }) => ({ user: user.user }), {
   getUser: getUserAction,
   setUser: setUserAction,
   setGameMode: setGameModeAction,

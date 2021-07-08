@@ -1,7 +1,12 @@
 import { Card } from "../Card";
 
 export function CardBoard({ cards, flippCard }) {
-  console.log(cards);
+
+  function onClickHandler(card, row, column) {
+    if(!card.flipped) {
+      flippCard(row, column)
+    }
+  }
 
   return (
     <table>
@@ -11,7 +16,7 @@ export function CardBoard({ cards, flippCard }) {
             {rowOfCards.map((card, indexOfColumn) => (
               <td
                 key={indexOfColumn}
-                onClick={() => flippCard(indexOfRow, indexOfColumn)}
+                onClick={() => onClickHandler(card, indexOfRow, indexOfColumn)}
               >
                 <Card card={card} />
               </td>

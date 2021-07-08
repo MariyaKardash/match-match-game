@@ -2,12 +2,12 @@ import { SET_CARDS, FLIPP_CARD } from "../constants";
 
 const defaultState = {cards:[
     [
-      { cardValue: 1, flipped: false },
-      { cardValue: 2, flipped: false },
+      { value: 1, flipped: false },
+      { value: 2, flipped: false },
     ],
     [
-      { cardValue: 3, flipped: true },
-      { cardValue: 4, flipped: false },
+      { value: 3, flipped: true },
+      { value: 4, flipped: false },
     ],
   ]};
 
@@ -20,7 +20,7 @@ export default (state = defaultState, action) => {
             ...state,
             cards: state.cards.map((innerArray, index) => {
                 if (index === action.payload.row) return innerArray.map((item, index) => {
-                    if (index === action.payload.column) return {cardValue: item.cardValue, flipped: !item.flipped}
+                    if (index === action.payload.column) return {value: item.value, flipped: !item.flipped}
                     return item
                 })
                 return innerArray

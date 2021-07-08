@@ -1,9 +1,11 @@
-import userReducer from './user';
-import gameModeReducer from './gameMode'
-import cardsReducer from './cards'
+import user from './user';
+import gameMode from './gameMode'
+import cards from './cards'
+import gameState from './gameState'
 
 export const rootReducers = {
-    userReducer,
-    gameModeReducer,
-    cardsReducer,
+    user,
+    gameMode,
+    cards,
+    gameState,
 };
