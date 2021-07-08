@@ -1,0 +1,1 @@
+export { WelcomeInput } from './Component'

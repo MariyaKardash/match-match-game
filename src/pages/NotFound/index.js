@@ -1,5 +1,11 @@
+import {Header} from '../../components/Header'
+import { PageName } from '../../components/styled'
+
 export function NotFoundPage() {
     return(
-    <h1>Not found page</h1>
+    <>
+        <Header/>
+        <PageName>I'm so sorry, but we can't find this page. Please check your URL.</PageName>
+    </>
     )
 }
