@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { Difficulty } from "../Difficulty";
 import { CardMode } from "../CardMode";
@@ -25,9 +26,10 @@ export function GameMode(props) {
         <H3>Rules</H3>
         <p>Rules will be here</p>
       </Wrapper>
-      <Button type="sumbit" onClick={() => onClickButton(props)}>
+      <Link to='/game'><Button onClick={() => onClickButton(props)}>
         Start game
       </Button>
+      </Link>
     </div>
   );
 }

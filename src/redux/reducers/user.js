@@ -1,6 +1,6 @@
-import { GET_USER, SET_GAME_MODE, SET_USER } from "../constants";
+import { GET_USER, SET_USER } from "../constants";
 
-const defaultState = {};
+const defaultState = {user: {firstName: 'NoName', secondName: '-', email:'mmg@gmail.com'}};
 
 export default (state = defaultState, action) => {
   switch (action.type) {
@@ -8,8 +8,6 @@ export default (state = defaultState, action) => {
       return { ...state, user: action.payload };
     case SET_USER:
       return { ...state, user: action.payload };
-    case SET_GAME_MODE:
-      return { ...state, game: action.payload };
     default:
       return state;
   }

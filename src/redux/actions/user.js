@@ -10,7 +10,7 @@ export const getUser = () => (dispatch) => {
     }
   };
   
-export const setUser = (firstName, secondName, email) => async (dispatch) => {
+export const setUser = (firstName, secondName, email) => (dispatch) => {
     const userData = {
       firstName,
       secondName,

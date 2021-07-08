@@ -1,7 +1,7 @@
 import { CardDiv } from '../styled'
 
-export function Card() {
+export function Card({ card }) {
     return (
-        <CardDiv>Card</CardDiv>
+        <CardDiv>{card.flipped ? card.cardValue : '#'}</CardDiv>
     )
 }

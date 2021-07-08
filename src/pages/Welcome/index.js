@@ -12,12 +12,12 @@ import {
 
 import {
   setGameMode as setGameModeAction,
-} from "../../redux/actions/game";
+} from "../../redux/actions/gameMode";
 
 function WelcomePage({ user, getUser, setUser, setGameMode }) {
   useEffect(() => {
     getUser();
-  }, []);
+  }, [getUser]);
 
   return (
     <>
@@ -37,7 +37,7 @@ function WelcomePage({ user, getUser, setUser, setGameMode }) {
   );
 }
 
-export default connect(({ welcomeReducer }) => ({ user: welcomeReducer.user }), {
+export default connect(({ userReducer }) => ({ user: userReducer.user }), {
   getUser: getUserAction,
   setUser: setUserAction,
   setGameMode: setGameModeAction,
