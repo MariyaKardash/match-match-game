@@ -13,8 +13,8 @@ function onClickButton(props) {
   const cardMode = document.querySelector('input[name="radio"]:checked').value;
   if (!props.userData) {
     props.setUser(firstName, secondName, email);
-    props.setGameMode(difficulty, cardMode);
   }
+  props.setGameMode(difficulty, cardMode);
 }
 
 export function GameMode(props) {

@@ -22,4 +22,4 @@ export const unsuccessTwo = (firstItem, secondItem) => (dispatch) => {
     } catch (error) {
       console.log(error);
     }
-  };
+};

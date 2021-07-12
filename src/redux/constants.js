@@ -6,6 +6,7 @@ const gameStateModuleName = "gameState";
 export const GET_USER = `${userModuleName}/GET_USER`;
 export const SET_USER = `${userModuleName}/SET_USER`;
 
+export const GET_GAME_MODE = `${gameModuleName}/GET_GAME_MODE`;
 export const SET_GAME_MODE = `${gameModuleName}/SET_GAME_MODE`;
 
 export const SET_CARDS = `${cardsModuleName}/SET_CARDS`;

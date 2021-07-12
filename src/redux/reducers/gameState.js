@@ -1,9 +1,11 @@
 import { WAIT_FIRST_ITEM, WAIT_SECOND_ITEM, UNSUCCESS_TWO } from "../constants";
 
 const defaultState = {
-  gameState: WAIT_FIRST_ITEM,
-  firstItem: null,
-  secondItem: null,
+  gameState: {
+    state: WAIT_FIRST_ITEM,
+    firstItem: null,
+    secondItem: null,
+  },
 };
 
 export default (state = defaultState, action) => {

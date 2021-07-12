@@ -1,7 +1,16 @@
+import ReactCardFlip from 'react-card-flip';
 import { CardDiv } from '../styled'
 
 export function Card({ card }) {
-    return (
-        <CardDiv>{card.flipped ? card.value : '#'}</CardDiv>
+    return ( 
+        <ReactCardFlip isFlipped={card.flipped} flipDirection="horizontal">
+            <CardDiv>
+                #
+            </CardDiv>
+
+            <CardDiv>
+                {card.value}
+            </CardDiv>
+      </ReactCardFlip>
     )
 }
