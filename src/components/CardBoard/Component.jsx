@@ -5,8 +5,16 @@ import {
 } from "../../redux/constants";
 
 import { Card } from "../Card";
+import { Stopwatch } from "../Watch";
 
-export function CardBoard({ cards, flippCard, gameState, waitFirstItem, waitSecondItem, unsuccessTwo}) {
+export function CardBoard({
+  cards,
+  flippCard,
+  gameState,
+  waitFirstItem,
+  waitSecondItem,
+  unsuccessTwo,
+}) {
   function onClickHandler(card, row, column) {
     if (!card.flipped) {
       switch (gameState.state) {
@@ -16,7 +24,7 @@ export function CardBoard({ cards, flippCard, gameState, waitFirstItem, waitSeco
           break;
         case WAIT_SECOND_ITEM:
           flippCard(row, column);
-          if(gameState.firstItem.value === card.value) {
+          if (gameState.firstItem.value === card.value) {
             waitFirstItem();
           } else {
             unsuccessTwo(gameState.firstItem, card);

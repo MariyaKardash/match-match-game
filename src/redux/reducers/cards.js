@@ -1,15 +1,6 @@
 import { SET_CARDS, FLIPP_CARD } from "../constants";
 
-const defaultState = {cards:[
-    [
-      { value: 1, flipped: false },
-      { value: 2, flipped: false },
-    ],
-    [
-      { value: 3, flipped: true },
-      { value: 4, flipped: false },
-    ],
-  ]};
+const defaultState = {cards:[]};
 
 export default (state = defaultState, action) => {
   switch (action.type) {

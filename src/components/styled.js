@@ -37,7 +37,7 @@ export const Form = styled.form`
 
 export const HeaderWrapper = styled.header`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin: 0;
   padding: 10px 30px;
@@ -66,6 +66,7 @@ export const CardDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 3px;
 `;
 
 export const Wrapper = styled.div`
@@ -83,3 +84,8 @@ width: 300px;
 export const H3 = styled.h3`
 margin: 0;
 padding: 0;`
+
+export const ImageForCard = styled.img`
+height: 50px;
+  width: 50px;
+`

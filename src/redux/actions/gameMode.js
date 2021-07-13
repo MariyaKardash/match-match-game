@@ -15,8 +15,8 @@ export const setGameMode = (difficulty, cardTheme) => (dispatch) => {
 
 export const getGameMode = () => (dispatch) => {
   try {
-    const userData = JSON.parse(window.localStorage.getItem("gameMode"));
-    dispatch({ type: GET_GAME_MODE, payload: userData });
+    const gameMode = JSON.parse(window.localStorage.getItem("gameMode"));
+    dispatch({ type: GET_GAME_MODE, payload: gameMode });
   } catch (error) {
     console.log(error);
   }

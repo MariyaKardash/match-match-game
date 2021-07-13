@@ -5,14 +5,48 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background: url(background.jpeg) no-repeat rgb(232, 211, 255);
-  background-size: 100% 100vh; */
 }
 
 .header-wrapper {
-	background: linear-gradient(-45deg, #53c9ff73, #6a67fc73, #53c9ff73, #6a67fc73, #53c9ff73);
+	background: linear-gradient(-45deg, #9975FF, #7751C8,  #53209F, #7751C8, #9975FF);
 	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+	animation: gradient 30s ease infinite;
+}
+
+.welcome-background-main {
+  background: url(background.jpg) no-repeat rgb(232, 211, 255);
+  background-size: 100% calc(100vh - 90px);
+}
+
+.welcome-background-second {
+  height: 100vh;
+}
+
+.welcome-container {
+  width: 100%;
+  height: calc(100vh - 90px);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.main-header {
+  background: #9975FF;
+  border-radius: 0 150px 150px 0;
+  width: 1000px;
+  height: 150px;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 125px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 250px;
 }
 
 @keyframes gradient {
@@ -30,13 +64,6 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.welcome-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
 }
 
 .game-mode-container {
