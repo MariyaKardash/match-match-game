@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { store } from "../../redux/store";
 
@@ -10,6 +10,8 @@ import {
   setCards as setCardsAction,
   flippCard as flippCardAction,
 } from "../../redux/actions/cards";
+
+import { getUser as getUserAction } from "../../redux/actions/user";
 
 import {
   waitFirstItem as waitFirstItemAction,
@@ -90,21 +92,18 @@ function GamePage({
   setScore,
   setTime,
   setStep,
+  getUser,
 }) {
   useEffect(() => {
+    getUser();
     getGameMode();
     setCards(fillArray(store.getState().gameMode.game.difficulty));
-  }, [getGameMode, setCards]);
-
-  const [isRestart, setIsRestart] = useState(false);
+  }, [getUser, getGameMode, setCards]);
 
   function onClickRestart() {
-    console.log(isRestart);
-    setIsRestart(true);
-    console.log(isRestart);
+    restart();
     setScore(0);
     setStep(0);
-    waitFirstItem();
     setCards(fillArray(store.getState().gameMode.game.difficulty));
   }
 
@@ -115,7 +114,7 @@ function GamePage({
       <Stopwatch
         gameState={gameState}
         setTime={setTime}
-        isRestart={isRestart}
+        waitFirstItem={waitFirstItem}
       />
       <p>Score: {score}</p>
       <p>Steps: {step}</p>
@@ -164,5 +163,6 @@ export default connect(
     setScore: setScoreAction,
     setTime: setTimeAction,
     setStep: setStepAction,
+    getUser: getUserAction,
   }
 )(GamePage);

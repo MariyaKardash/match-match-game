@@ -1,7 +1,3 @@
-export function getUserFromLocaleStorage() {
-    return JSON.parse(window.localStorage.getItem("user"));
-}
-
 export function getScoreFromLocaleStorage() {
   return JSON.parse(window.localStorage.getItem("scores")) || null;
 }

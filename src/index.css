@@ -22,6 +22,14 @@ body {
   height: 100vh;
 }
 
+.rose {
+  background-color: #9975FF;
+}
+
+.violet {
+  background-color: #53209F;
+}
+
 .welcome-container {
   width: 100%;
   height: calc(100vh - 90px);

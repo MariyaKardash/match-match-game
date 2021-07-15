@@ -4,6 +4,7 @@ import {
   UNSUCCESS_TWO,
 } from "../../redux/constants";
 
+import { useHistory } from "react-router-dom"
 
 import {getScoreFromLocaleStorage, setScoreToLocaleStorage} from '../../localeStorage'
 
@@ -36,15 +37,20 @@ export function CardBoard({
           flippCard(row, column);
           if (gameState.firstItem.value === card.value) {
             setScore(score + 2);
-            waitFirstItem();
             if (score + 2 === cards.length ** 2) {
               finished();
-              setScoreToLocaleStorage(
+              setTimeout(() => {
+                setScoreToLocaleStorage(
                 store.getState().gameMode.game,
                 store.getState().timer.time,
                 store.getState().score,
                 store.getState().user.user,
               );
+              }, 1000);
+              
+              // window.location("/congratulations");
+            } else {
+              waitFirstItem();
             }
           } else {
             unsuccessTwo(gameState.firstItem, card);

@@ -1,5 +1,5 @@
 import React from "react";
-import { FINISHED, RESTART } from "../../redux/constants";
+import { FINISHED, RESTART, WAIT_SECOND_ITEM } from "../../redux/constants";
 
 export class Stopwatch extends React.Component {
   constructor(props) {
@@ -11,22 +11,19 @@ export class Stopwatch extends React.Component {
     this.timerId = null;
   }
 
-  componentDidUpdate() {
-    if (this.props.gameState.state === FINISHED) {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.gameState.state === FINISHED) {
       this.stopTime();
       this.props.setTime(this.state.time.toLocaleString());
     }
-    if (this.props.isRestart) {
-      // console.log(this.isRestart)
-      // console.log("RESTART");
-      // this.stopTime();
-      // this.resetTime();
-      // this.startTime();
+    if (nextProps.gameState.state === RESTART) {
+      this.stopTime();
+      this.resetTime();
+      this.props.waitFirstItem();
     }
-  }
-
-  componentDidMount() {
-    this.startTime();
+    if (nextProps.gameState.state === WAIT_SECOND_ITEM && this.state.seconds === 1) {
+      this.startTime();
+    }
   }
 
   componentWillUnmount() {
