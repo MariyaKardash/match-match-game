@@ -12,17 +12,22 @@ import {
 
 import {
   setGameMode as setGameModeAction,
-} from "../../redux/actions/game";
+} from "../../redux/actions/gameMode";
 
-function WelcomePage({ user, getUser, setUser, setGameMode }) {
+function WelcomePage({ user, getUser, setUser, setGameMode}) {
   useEffect(() => {
     getUser();
-  }, []);
+  }, [getUser]);
 
   return (
     <>
       <Header />
-      <div className="welcome-container">
+      <div className="welcome-container welcome-background-main">
+        <div className="main-header header-wrapper">
+          WELCOME TO MEMORY GAME
+        </div>
+      </div>
+      <div className="welcome-container welcome-background-second">
         {user && Object.keys(user).length ? (
           <h1>{user.firstName}, welcome to Match-Match Game</h1>
         ) : (
@@ -37,7 +42,7 @@ function WelcomePage({ user, getUser, setUser, setGameMode }) {
   );
 }
 
-export default connect(({ welcomeReducer }) => ({ user: welcomeReducer.user }), {
+export default connect(({ user }) => ({ user: user.user }), {
   getUser: getUserAction,
   setUser: setUserAction,
   setGameMode: setGameModeAction,

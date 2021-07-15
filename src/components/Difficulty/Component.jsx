@@ -7,9 +7,9 @@ export function Difficulty(props) {
         <H3>Difficulty</H3>
         <form>
             <Select id='difficultySelect'>
-                <option value="Easy">Easy(4x4)</option>
-                <option value="Medium">Medium(6x6)</option>
-                <option value="Hard">Hard(8x8)</option>
+                <option value="4">Easy(4x4)</option>
+                <option value="6">Medium(6x6)</option>
+                <option value="8">Hard(8x8)</option>
             </Select>
         </form>
         </Wrapper>
