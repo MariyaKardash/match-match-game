@@ -1,6 +1,6 @@
 import { SET_GAME_MODE, GET_GAME_MODE } from "../constants";
 
-const defaultState = {game: {difficulty: 4, cardTheme: 'numbers'}};
+const defaultState = { game: { difficulty: 4, cardTheme: "numbers" } };
 
 export default (state = defaultState, action) => {
   switch (action.type) {

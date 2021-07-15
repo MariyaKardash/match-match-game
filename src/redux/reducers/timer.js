@@ -1,6 +1,6 @@
 import { SET_TIME } from "../constants";
 
-const defaultState = { time: new Date(0,0,0,0,0,0).toLocaleString() };
+const defaultState = { time: new Date(0, 0, 0, 0, 0, 0).toLocaleString() };
 
 export default (state = defaultState, action) => {
   switch (action.type) {

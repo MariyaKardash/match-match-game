@@ -1,6 +1,8 @@
 import { GET_USER, SET_USER } from "../constants";
 
-const defaultState = {user: {firstName: 'NoName', secondName: '-', email:'mmg@gmail.com'}};
+const defaultState = {
+  user: { firstName: "NoName", secondName: "NoName", email: "mmg@gmail.com" },
+};
 
 export default (state = defaultState, action) => {
   switch (action.type) {

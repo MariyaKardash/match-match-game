@@ -1,4 +1,4 @@
-import { GET_SCORE_FROM_LOCALE_STORAGE,SET_SCORE_TO_LOCALE_STORAGE, SET_SCORE, SET_STEP } from "../constants";
+import { SET_SCORE, SET_STEP } from "../constants";
 
 const defaultState = { score: 0, step: 0 };
 

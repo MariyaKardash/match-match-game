@@ -1,7 +1,4 @@
-import {
-  SET_SCORE,
-  SET_STEP,
-} from "../constants";
+import { SET_SCORE, SET_STEP } from "../constants";
 
 export const setScore = (score) => (dispatch) => {
   try {

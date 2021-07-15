@@ -21,7 +21,7 @@ export class Stopwatch extends React.Component {
       this.resetTime();
       this.props.waitFirstItem();
     }
-    if (nextProps.gameState.state === WAIT_SECOND_ITEM && this.state.seconds === 1) {
+    if (nextProps.gameState.state === WAIT_SECOND_ITEM && !this.timerId) {
       this.startTime();
     }
   }

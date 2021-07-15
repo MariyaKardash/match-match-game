@@ -70,22 +70,23 @@ export const CardDiv = styled.div`
 `;
 
 export const Wrapper = styled.div`
-border: 1px solid black;
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
-padding: 10px;
-margin: 10px;
-border-radius: 10px;
-width: 300px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 300px;
 `;
 
 export const H3 = styled.h3`
-margin: 0;
-padding: 0;`
+  margin: 0;
+  padding: 0;
+`;
 
 export const ImageForCard = styled.img`
-height: 50px;
+  height: 50px;
   width: 50px;
-`
+`;

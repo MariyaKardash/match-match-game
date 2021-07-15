@@ -26,9 +26,8 @@ export function GameMode(props) {
         <H3>Rules</H3>
         <p>Rules will be here</p>
       </Wrapper>
-      <Link to='/game'><Button onClick={() => onClickButton(props)}>
-        Start game
-      </Button>
+      <Link to="/game">
+        <Button onClick={() => onClickButton(props)}>Start game</Button>
       </Link>
     </div>
   );
