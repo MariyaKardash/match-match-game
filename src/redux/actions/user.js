@@ -1,6 +1,5 @@
 import { GET_USER, SET_USER } from "../constants";
 
-
 export const getUser = () => (dispatch) => {
     try {
       const userData = JSON.parse(window.localStorage.getItem("user"));

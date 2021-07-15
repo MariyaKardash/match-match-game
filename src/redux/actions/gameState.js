@@ -1,4 +1,4 @@
-import { WAIT_FIRST_ITEM, WAIT_SECOND_ITEM, UNSUCCESS_TWO } from "../constants";
+import { WAIT_FIRST_ITEM, WAIT_SECOND_ITEM, UNSUCCESS_TWO, FINISHED, RESTART } from "../constants";
 
 export const waitFirstItem = () => (dispatch) => {
   try {
@@ -22,4 +22,20 @@ export const unsuccessTwo = (firstItem, secondItem) => (dispatch) => {
     } catch (error) {
       console.log(error);
     }
+};
+
+export const finished = () => (dispatch) => {
+  try {
+    dispatch({ type: FINISHED, payload: {state: FINISHED} });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const restart = () => (dispatch) => {
+  try {
+    dispatch({ type: RESTART, payload: {state: RESTART, firstItem: null, secondItem: null} });
+  } catch (error) {
+    console.log(error);
+  }
 };

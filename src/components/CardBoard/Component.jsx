@@ -4,8 +4,12 @@ import {
   UNSUCCESS_TWO,
 } from "../../redux/constants";
 
+
+import {getScoreFromLocaleStorage, setScoreToLocaleStorage} from '../../localeStorage'
+
+import { store } from "../../redux/store";
+
 import { Card } from "../Card";
-import { Stopwatch } from "../Watch";
 
 export function CardBoard({
   cards,
@@ -14,6 +18,11 @@ export function CardBoard({
   waitFirstItem,
   waitSecondItem,
   unsuccessTwo,
+  finished,
+  score,
+  setScore,
+  step,
+  setStep,
 }) {
   function onClickHandler(card, row, column) {
     if (!card.flipped) {
@@ -23,9 +32,20 @@ export function CardBoard({
           waitSecondItem(card);
           break;
         case WAIT_SECOND_ITEM:
+          setStep(step + 1);
           flippCard(row, column);
           if (gameState.firstItem.value === card.value) {
+            setScore(score + 2);
             waitFirstItem();
+            if (score + 2 === cards.length ** 2) {
+              finished();
+              setScoreToLocaleStorage(
+                store.getState().gameMode.game,
+                store.getState().timer.time,
+                store.getState().score,
+                store.getState().user.user,
+              );
+            }
           } else {
             unsuccessTwo(gameState.firstItem, card);
           }

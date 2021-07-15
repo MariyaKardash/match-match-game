@@ -1,4 +1,10 @@
-import { WAIT_FIRST_ITEM, WAIT_SECOND_ITEM, UNSUCCESS_TWO } from "../constants";
+import {
+  WAIT_FIRST_ITEM,
+  WAIT_SECOND_ITEM,
+  UNSUCCESS_TWO,
+  FINISHED,
+  RESTART,
+} from "../constants";
 
 const defaultState = {
   gameState: {
@@ -15,6 +21,10 @@ export default (state = defaultState, action) => {
     case WAIT_SECOND_ITEM:
       return { ...state, gameState: action.payload };
     case UNSUCCESS_TWO:
+      return { ...state, gameState: action.payload };
+    case FINISHED:
+      return { ...state, gameState: action.payload };
+    case RESTART:
       return { ...state, gameState: action.payload };
     default:
       return state;
