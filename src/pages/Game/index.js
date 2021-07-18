@@ -4,23 +4,17 @@ import { connect } from "react-redux";
 
 import { store } from "../../redux/store";
 
-import { Stopwatch } from "../../components/Watch";
+import { Timer } from "../../components/Timer";
 import { Header } from "../../components/Header";
-import { CardBoard } from "../../components/CardBoard";
+import CardBoard from "../../components/CardBoard/Component";
 import { Button } from "../../components/styled";
 
-import {
-  setCards as setCardsAction,
-  flippCard as flippCardAction,
-} from "../../redux/actions/cards";
+import { setCards as setCardsAction } from "../../redux/actions/cards";
 
 import { getUser as getUserAction } from "../../redux/actions/user";
 
 import {
   waitFirstItem as waitFirstItemAction,
-  waitSecondItem as waitSecondItemAction,
-  unsuccessTwo as unsuccessTwoAction,
-  finished as finishedAction,
   restart as restartAction,
 } from "../../redux/actions/gameState";
 
@@ -79,7 +73,6 @@ function fillArray(length, array = null) {
   return newCards;
 }
 
-
 function renderCards(props) {
   switch (store.getState().gameMode.game.cardTheme) {
     case "numbers":
@@ -102,8 +95,8 @@ function GamePage(props) {
     renderCards(props);
     return () => {
       onClickRestart();
-    }
-  }, [props.getUser, props.getGameMode, props.setCards]);
+    };
+  }, []);
 
   function onClickRestart() {
     props.restart();
@@ -116,29 +109,14 @@ function GamePage(props) {
     <>
       <Header />
       <h1>Game page</h1>
-      <Stopwatch
+      <Timer
         gameState={props.gameState}
         setTime={props.setTime}
         waitFirstItem={props.waitFirstItem}
       />
       <p>Score: {props.score}</p>
       <p>Steps: {props.step}</p>
-      <CardBoard
-        time={props.time}
-        cards={props.cards}
-        setCards={props.setCards}
-        flippCard={props.flippCard}
-        waitFirstItem={props.waitFirstItem}
-        waitSecondItem={props.waitSecondItem}
-        unsuccessTwo={props.unsuccessTwo}
-        gameState={props.gameState}
-        finished={props.finished}
-        score={props.score}
-        step={props.step}
-        restart={props.restart}
-        setScore={props.setScore}
-        setStep={props.setStep}
-      />
+      <CardBoard />
       <Button onClick={() => onClickRestart()}>Restart</Button>
       <Link to="/welcome">
         <Button>New game</Button>
@@ -148,9 +126,7 @@ function GamePage(props) {
 }
 
 export default connect(
-  ({ cards, gameState, score, timer }) => ({
-    time: timer.time,
-    cards: cards.cards,
+  ({ gameState, score }) => ({
     gameState: gameState.gameState,
     score: score.score,
     step: score.step,
@@ -159,11 +135,7 @@ export default connect(
     getGameMode: getGameModeAction,
     getUser: getUserAction,
     setCards: setCardsAction,
-    flippCard: flippCardAction,
     waitFirstItem: waitFirstItemAction,
-    waitSecondItem: waitSecondItemAction,
-    unsuccessTwo: unsuccessTwoAction,
-    finished: finishedAction,
     restart: restartAction,
     setScore: setScoreAction,
     setTime: setTimeAction,

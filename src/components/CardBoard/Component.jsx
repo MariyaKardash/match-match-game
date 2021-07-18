@@ -4,13 +4,34 @@ import {
   UNSUCCESS_TWO,
 } from "../../redux/constants";
 
+import { connect } from "react-redux";
+
+import {
+  setCards as setCardsAction,
+  flippCard as flippCardAction,
+} from "../../redux/actions/cards";
+
+import {
+  waitFirstItem as waitFirstItemAction,
+  waitSecondItem as waitSecondItemAction,
+  unsuccessTwo as unsuccessTwoAction,
+  finished as finishedAction,
+  restart as restartAction,
+} from "../../redux/actions/gameState";
+
+import {
+  setScore as setScoreAction,
+  setStep as setStepAction,
+} from "../../redux/actions/score";
+
 import { setScoreToLocaleStorage } from "../../localStorage";
 
 import { store } from "../../redux/store";
 
 import { Card } from "../Card";
 
-export function CardBoard(props) {
+function CardBoard(props) {
+  console.log(props)
   function onClickHandler(card, row, column) {
     if (!card.flipped) {
       switch (props.gameState.state) {
@@ -77,3 +98,24 @@ export function CardBoard(props) {
     </table>
   );
 }
+
+export default connect(
+  ({cards, score, timer, gameState}) => ({
+    cards: cards.cards,
+    score: score.score,
+    step: score.step,
+    time: timer.time,
+    gameState: gameState.gameState,
+  }),
+  {
+    setCards: setCardsAction,
+    flippCard: flippCardAction,
+    waitFirstItem: waitFirstItemAction,
+    waitSecondItem: waitSecondItemAction,
+    unsuccessTwo: unsuccessTwoAction,
+    finished: finishedAction,
+    restart: restartAction,
+    setScore: setScoreAction,
+    setStep: setStepAction,
+  }
+)(CardBoard);

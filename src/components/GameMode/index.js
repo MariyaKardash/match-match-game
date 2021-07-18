@@ -1,1 +1,1 @@
-export { GameMode } from './Component'
+// export { GameMode } from './Component'

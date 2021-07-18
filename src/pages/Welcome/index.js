@@ -2,19 +2,14 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { Header } from "../../components/Header";
-import { GameMode } from "../../components/GameMode";
+import GameMode from "../../components/GameMode/Component";
 import { WelcomeInput } from "../../components/WelcomeInput";
 
 import {
   getUser as getUserAction,
-  setUser as setUserAction,
 } from "../../redux/actions/user";
 
-import {
-  setGameMode as setGameModeAction,
-} from "../../redux/actions/gameMode";
-
-function WelcomePage({ user, getUser, setUser, setGameMode}) {
+function WelcomePage({ user, getUser }) {
   useEffect(() => {
     getUser();
   }, [getUser]);
@@ -36,7 +31,7 @@ function WelcomePage({ user, getUser, setUser, setGameMode}) {
           <WelcomeInput/>
           </>
         )}
-        <GameMode userData={user} setUser={setUser} setGameMode={setGameMode}/>
+        <GameMode/>
       </div>
     </>
   );
@@ -44,6 +39,4 @@ function WelcomePage({ user, getUser, setUser, setGameMode}) {
 
 export default connect(({ user }) => ({ user: user.user }), {
   getUser: getUserAction,
-  setUser: setUserAction,
-  setGameMode: setGameModeAction,
 })(WelcomePage);
