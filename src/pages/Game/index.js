@@ -50,16 +50,21 @@ function createArray(height, width) {
   for (var i = 0; i < height; i++) {
     x[i] = new Array(width);
   }
-  
+
   return x;
 }
 
-function fillArray(length) {
+function fillArray(length, array = null) {
   let newCards = createArray(length, length);
   let indices = [];
-  for (let index = 0; index < length * length; index++) {
-    indices.push(Math.floor(index / 2) + 1);
+  if (array) {
+    indices = [...array, ...array];
+  } else {
+    for (let index = 0; index < length * length; index++) {
+      indices.push(Math.floor(index / 2) + 1);
+    }
   }
+
   shuffleArray(indices);
   for (let i = 0; i < length; i++) {
     for (let j = 0; j < length; j++) {
@@ -75,18 +80,28 @@ function fillArray(length) {
 }
 
 
+function renderCards(props) {
+  switch (store.getState().gameMode.game.cardTheme) {
+    case "numbers":
+      props.setCards(fillArray(store.getState().gameMode.game.difficulty));
+      break;
+    case "flowers":
+      props.setCards(
+        fillArray(store.getState().gameMode.game.difficulty, flowers)
+      );
+      break;
+    default:
+      break;
+  }
+}
 
 function GamePage(props) {
   useEffect(() => {
     props.getUser();
     props.getGameMode();
-    switch(store.getState().gameMode.game.cardTheme) {
-      case 'numbers':
-        props.setCards(fillArray(store.getState().gameMode.game.difficulty));
-        break;
-
-        default:
-          break;
+    renderCards(props);
+    return () => {
+      onClickRestart();
     }
   }, [props.getUser, props.getGameMode, props.setCards]);
 
@@ -94,7 +109,7 @@ function GamePage(props) {
     props.restart();
     props.setScore(0);
     props.setStep(0);
-    props.setCards(fillArray(store.getState().gameMode.game.difficulty));
+    renderCards(props);
   }
 
   return (

@@ -4,7 +4,6 @@ import { CardDiv, ImageForCard } from "../styled";
 
 export function Card({ card }) {
   if(store.getState().gameMode.game.cardTheme === 'flowers') {
-    console.log(card)
     return (
       <ReactCardFlip isFlipped={card.flipped} flipDirection="horizontal">
         {(card.row + card.column) % 2 ? (
