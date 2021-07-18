@@ -32,6 +32,7 @@ import {
 } from "../../redux/actions/score";
 
 import { setTime as setTimeAction } from "../../redux/actions/timer";
+import { flowers } from "../../arrays";
 
 function shuffleArray(a) {
   let j, x, i;
@@ -49,8 +50,7 @@ function createArray(height, width) {
   for (var i = 0; i < height; i++) {
     x[i] = new Array(width);
   }
-
-  console.log(x);
+  
   return x;
 }
 
@@ -74,11 +74,20 @@ function fillArray(length) {
   return newCards;
 }
 
+
+
 function GamePage(props) {
   useEffect(() => {
     props.getUser();
     props.getGameMode();
-    props.setCards(fillArray(store.getState().gameMode.game.difficulty));
+    switch(store.getState().gameMode.game.cardTheme) {
+      case 'numbers':
+        props.setCards(fillArray(store.getState().gameMode.game.difficulty));
+        break;
+
+        default:
+          break;
+    }
   }, [props.getUser, props.getGameMode, props.setCards]);
 
   function onClickRestart() {

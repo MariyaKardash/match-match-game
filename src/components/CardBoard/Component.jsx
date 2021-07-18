@@ -28,7 +28,7 @@ export function CardBoard(props) {
               setTimeout(() => {
                 setScoreToLocaleStorage(
                   store.getState().gameMode.game,
-                  store.getState().timer.time,
+                  store.getState().timer.time.split(' ')[1],
                   store.getState().score,
                   store.getState().user.user
                 );
