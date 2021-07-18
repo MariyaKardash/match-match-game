@@ -2,7 +2,7 @@ import { SET_SCORE, SET_STEP } from "../constants";
 
 const defaultState = { score: 0, step: 0 };
 
-export default (state = defaultState, action) => {
+export const score = (state = defaultState, action) => {
   switch (action.type) {
     case SET_SCORE:
       return { ...state, score: action.payload };

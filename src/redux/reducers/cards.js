@@ -2,7 +2,7 @@ import { SET_CARDS, FLIPP_CARD } from "../constants";
 
 const defaultState = { cards: [] };
 
-export default (state = defaultState, action) => {
+export const cards = (state = defaultState, action) => {
   switch (action.type) {
     case SET_CARDS:
       return { ...state, cards: action.payload };

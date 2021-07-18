@@ -31,7 +31,6 @@ import { store } from "../../redux/store";
 import { Card } from "../Card";
 
 function CardBoard(props) {
-  console.log(props)
   function onClickHandler(card, row, column) {
     if (!card.flipped) {
       switch (props.gameState.state) {

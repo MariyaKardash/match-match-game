@@ -14,7 +14,7 @@ const defaultState = {
   },
 };
 
-export default (state = defaultState, action) => {
+export const gameState = (state = defaultState, action) => {
   switch (action.type) {
     case WAIT_FIRST_ITEM:
       return { ...state, gameState: action.payload };
