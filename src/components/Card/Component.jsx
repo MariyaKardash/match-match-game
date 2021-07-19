@@ -3,7 +3,7 @@ import { store } from "../../redux/store";
 import { CardDiv, ImageForCard } from "../styled";
 
 export function Card({ card }) {
-  if(store.getState().gameMode.game.cardTheme === 'flowers') {
+  if(store.getState().gameMode.game.cardTheme === 'alphabet' || store.getState().gameMode.game.cardTheme === 'summer') {
     return (
       <ReactCardFlip isFlipped={card.flipped} flipDirection="horizontal">
         {(card.row + card.column) % 2 ? (

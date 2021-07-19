@@ -18,13 +18,13 @@ export function CardMode() {
         </div>
 
         <div className="form_radio_btn">
-          <input id="cars" type="radio" name="radio" value="cars" />
-          <label htmlFor="cars">Cars</label>
+          <input id="alphabet" type="radio" name="radio" value="alphabet" />
+          <label htmlFor="alphabet">Alphabet</label>
         </div>
 
         <div className="form_radio_btn">
-          <input id="flowers" type="radio" name="radio" value="flowers" />
-          <label htmlFor="flowers">Flowers</label>
+          <input id="summer" type="radio" name="radio" value="summer" />
+          <label htmlFor="summer">Summer</label>
         </div>
       </form>
     </Wrapper>

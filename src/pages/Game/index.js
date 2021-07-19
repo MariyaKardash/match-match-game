@@ -26,7 +26,7 @@ import {
 } from "../../redux/actions/score";
 
 import { setTime as setTimeAction } from "../../redux/actions/timer";
-import { flowers } from "../../arrays";
+import { alphabet, summer } from "../../arrays";
 
 function shuffleArray(a) {
   let j, x, i;
@@ -78,9 +78,14 @@ function renderCards(props) {
     case "numbers":
       props.setCards(fillArray(store.getState().gameMode.game.difficulty));
       break;
-    case "flowers":
+      case "alphabet":
+        props.setCards(
+          fillArray(store.getState().gameMode.game.difficulty, alphabet)
+        );
+        break;
+    case "summer":
       props.setCards(
-        fillArray(store.getState().gameMode.game.difficulty, flowers)
+        fillArray(store.getState().gameMode.game.difficulty, summer)
       );
       break;
     default:
@@ -90,6 +95,7 @@ function renderCards(props) {
 
 function GamePage(props) {
   useEffect(() => {
+    props.waitFirstItem();
     props.getUser();
     props.getGameMode();
     renderCards(props);
