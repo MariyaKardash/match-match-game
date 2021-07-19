@@ -52,7 +52,8 @@ function fillArray(length, array = null) {
   let newCards = createArray(length, length);
   let indices = [];
   if (array) {
-    indices = [...array, ...array];
+    let newArray = array.slice(0, length**2/2)
+    indices = [...newArray, ...newArray];
   } else {
     for (let index = 0; index < length * length; index++) {
       indices.push(Math.floor(index / 2) + 1);

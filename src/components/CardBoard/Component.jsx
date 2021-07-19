@@ -29,6 +29,7 @@ import { setScoreToLocaleStorage } from "../../localStorage";
 import { store } from "../../redux/store";
 
 import { Card } from "../Card";
+import { Redirect, Route } from "react-router-dom";
 
 function CardBoard(props) {
   function onClickHandler(card, row, column) {
@@ -52,6 +53,7 @@ function CardBoard(props) {
                   store.getState().score,
                   store.getState().user.user
                 );
+                window.location.pathname = '/congratulations';
               }, 1000);
             } else {
               props.waitFirstItem();

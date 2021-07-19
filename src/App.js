@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import {store} from './redux/store'
 
 import WelcomePage from "./pages/Welcome";
 import { CongratulationsPage } from "./pages/Congratulations";
@@ -7,6 +8,7 @@ import GamePage from "./pages/Game";
 import { NotFoundPage } from "./pages/NotFound";
 import { ProfilePage } from "./pages/Profile";
 import { RecordsPage } from "./pages/Records";
+import { FINISHED } from "./redux/constants";
 
 function App() {
   return (
