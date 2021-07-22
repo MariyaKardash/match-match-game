@@ -1,10 +1,10 @@
 import React from "react";
-import { Wrapper, H3 } from "../styled";
+import { Wrapper } from "../styled";
 
 export function CardMode() {
   return (
     <Wrapper>
-      <H3>Theme</H3>
+      <h3>Theme</h3>
       <form id="themeRadio">
         <div className="form_radio_btn">
           <input

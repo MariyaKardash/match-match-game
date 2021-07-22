@@ -1,6 +1,6 @@
 import { getScoreFromLocaleStorage } from "../../localStorage";
 import { Header } from "../../components/Header";
-import { H3, Button } from "../../components/styled";
+import { Button } from "../../components/styled";
 import { Link } from "react-router-dom";
 
 export function CongratulationsPage() {
@@ -12,7 +12,7 @@ export function CongratulationsPage() {
     <>
         <Header/>
         <h1>{lastRecord.user.firstName}, CONGRATULATIONS!</h1>
-        <H3>You win!!!</H3>
+        <h3>You win!!!</h3>
         <div>Difficulty: {lastRecord.mode.difficulty}</div>
         <div>Card theme: {lastRecord.mode.cardTheme}</div>
         <div>Time: {lastRecord.time}</div>
