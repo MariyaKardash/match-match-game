@@ -4,63 +4,74 @@ import {
   UNSUCCESS_TWO,
 } from "../../redux/constants";
 
-import { useHistory } from "react-router-dom"
+import { connect } from "react-redux";
 
-import {getScoreFromLocaleStorage, setScoreToLocaleStorage} from '../../localeStorage'
+import {
+  setCards as setCardsAction,
+  flippCard as flippCardAction,
+} from "../../redux/actions/cards";
+
+import {
+  waitFirstItem as waitFirstItemAction,
+  waitSecondItem as waitSecondItemAction,
+  unsuccessTwo as unsuccessTwoAction,
+  finished as finishedAction,
+  restart as restartAction,
+} from "../../redux/actions/gameState";
+
+import {
+  setScore as setScoreAction,
+  setStep as setStepAction,
+} from "../../redux/actions/score";
+
+import { setScoreToLocaleStorage } from "../../localStorage";
 
 import { store } from "../../redux/store";
 
 import { Card } from "../Card";
 
-export function CardBoard({
-  cards,
-  flippCard,
-  gameState,
-  waitFirstItem,
-  waitSecondItem,
-  unsuccessTwo,
-  finished,
-  score,
-  setScore,
-  step,
-  setStep,
-}) {
+function CardBoard(props) {
   function onClickHandler(card, row, column) {
     if (!card.flipped) {
-      switch (gameState.state) {
+      switch (props.gameState.state) {
         case WAIT_FIRST_ITEM:
-          flippCard(row, column);
-          waitSecondItem(card);
+          props.flippCard(row, column);
+          props.waitSecondItem(card);
           break;
         case WAIT_SECOND_ITEM:
-          setStep(step + 1);
-          flippCard(row, column);
-          if (gameState.firstItem.value === card.value) {
-            setScore(score + 2);
-            if (score + 2 === cards.length ** 2) {
-              finished();
+          props.setStep(props.step + 1);
+          props.flippCard(row, column);
+          if (props.gameState.firstItem.value === card.value) {
+            props.setScore(props.score + 2);
+            if (props.score + 2 === props.cards.length ** 2) {
+              props.finished();
               setTimeout(() => {
                 setScoreToLocaleStorage(
-                store.getState().gameMode.game,
-                store.getState().timer.time,
-                store.getState().score,
-                store.getState().user.user,
-              );
+                  store.getState().gameMode.game,
+                  store.getState().timer.time.split(' ')[1],
+                  store.getState().score,
+                  store.getState().user.user
+                );
+                window.location.pathname = '/congratulations';
               }, 1000);
-              
-              // window.location("/congratulations");
             } else {
-              waitFirstItem();
+              props.waitFirstItem();
             }
           } else {
-            unsuccessTwo(gameState.firstItem, card);
+            props.unsuccessTwo(props.gameState.firstItem, card);
           }
           break;
         case UNSUCCESS_TWO:
-          flippCard(gameState.secondItem.row, gameState.secondItem.column);
-          flippCard(gameState.firstItem.row, gameState.firstItem.column);
-          flippCard(row, column);
-          waitSecondItem(card);
+          props.flippCard(
+            props.gameState.secondItem.row,
+            props.gameState.secondItem.column
+          );
+          props.flippCard(
+            props.gameState.firstItem.row,
+            props.gameState.firstItem.column
+          );
+          props.flippCard(row, column);
+          props.waitSecondItem(card);
           break;
         default:
           break;
@@ -71,7 +82,7 @@ export function CardBoard({
   return (
     <table>
       <tbody>
-        {cards.map((rowOfCards, indexOfRow) => (
+        {props.cards.map((rowOfCards, indexOfRow) => (
           <tr key={indexOfRow}>
             {rowOfCards.map((card, indexOfColumn) => (
               <td
@@ -87,3 +98,24 @@ export function CardBoard({
     </table>
   );
 }
+
+export default connect(
+  ({cards, score, timer, gameState}) => ({
+    cards: cards.cards,
+    score: score.score,
+    step: score.step,
+    time: timer.time,
+    gameState: gameState.gameState,
+  }),
+  {
+    setCards: setCardsAction,
+    flippCard: flippCardAction,
+    waitFirstItem: waitFirstItemAction,
+    waitSecondItem: waitSecondItemAction,
+    unsuccessTwo: unsuccessTwoAction,
+    finished: finishedAction,
+    restart: restartAction,
+    setScore: setScoreAction,
+    setStep: setStepAction,
+  }
+)(CardBoard);

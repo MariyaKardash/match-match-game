@@ -1,23 +1,20 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { store } from "../../redux/store";
 
+import { Timer } from "../../components/Timer";
 import { Header } from "../../components/Header";
-import { CardBoard } from "../../components/CardBoard";
-import { connect } from "react-redux";
+import CardBoard from "../../components/CardBoard/Component";
+import { Button } from "../../components/styled";
 
-import {
-  setCards as setCardsAction,
-  flippCard as flippCardAction,
-} from "../../redux/actions/cards";
+import { setCards as setCardsAction } from "../../redux/actions/cards";
 
 import { getUser as getUserAction } from "../../redux/actions/user";
 
 import {
   waitFirstItem as waitFirstItemAction,
-  waitSecondItem as waitSecondItemAction,
-  unsuccessTwo as unsuccessTwoAction,
-  finished as finishedAction,
   restart as restartAction,
 } from "../../redux/actions/gameState";
 
@@ -29,10 +26,7 @@ import {
 } from "../../redux/actions/score";
 
 import { setTime as setTimeAction } from "../../redux/actions/timer";
-
-import { Stopwatch } from "../../components/Watch";
-import { Button } from "../../components/styled";
-import { Link } from "react-router-dom";
+import { alphabet, summer } from "../../arrays";
 
 function shuffleArray(a) {
   let j, x, i;
@@ -51,16 +45,21 @@ function createArray(height, width) {
     x[i] = new Array(width);
   }
 
-  console.log(x);
   return x;
 }
 
-function fillArray(length) {
+function fillArray(length, array = null) {
   let newCards = createArray(length, length);
   let indices = [];
-  for (let index = 0; index < length * length; index++) {
-    indices.push(Math.floor(index / 2) + 1);
+  if (array) {
+    let newArray = array.slice(0, length**2/2)
+    indices = [...newArray, ...newArray];
+  } else {
+    for (let index = 0; index < length * length; index++) {
+      indices.push(Math.floor(index / 2) + 1);
+    }
   }
+
   shuffleArray(indices);
   for (let i = 0; i < length; i++) {
     for (let j = 0; j < length; j++) {
@@ -75,65 +74,56 @@ function fillArray(length) {
   return newCards;
 }
 
-function GamePage({
-  cards,
-  time,
-  step,
-  setCards,
-  flippCard,
-  waitFirstItem,
-  waitSecondItem,
-  unsuccessTwo,
-  finished,
-  restart,
-  gameState,
-  getGameMode,
-  score,
-  setScore,
-  setTime,
-  setStep,
-  getUser,
-}) {
+function renderCards(props) {
+  switch (store.getState().gameMode.game.cardTheme) {
+    case "numbers":
+      props.setCards(fillArray(store.getState().gameMode.game.difficulty));
+      break;
+      case "alphabet":
+        props.setCards(
+          fillArray(store.getState().gameMode.game.difficulty, alphabet)
+        );
+        break;
+    case "summer":
+      props.setCards(
+        fillArray(store.getState().gameMode.game.difficulty, summer)
+      );
+      break;
+    default:
+      break;
+  }
+}
+
+function GamePage(props) {
   useEffect(() => {
-    getUser();
-    getGameMode();
-    setCards(fillArray(store.getState().gameMode.game.difficulty));
-  }, [getUser, getGameMode, setCards]);
+    props.waitFirstItem();
+    props.getUser();
+    props.getGameMode();
+    renderCards(props);
+    return () => {
+      onClickRestart();
+    };
+  }, []);
 
   function onClickRestart() {
-    restart();
-    setScore(0);
-    setStep(0);
-    setCards(fillArray(store.getState().gameMode.game.difficulty));
+    props.restart();
+    props.setScore(0);
+    props.setStep(0);
+    renderCards(props);
   }
 
   return (
     <>
       <Header />
       <h1>Game page</h1>
-      <Stopwatch
-        gameState={gameState}
-        setTime={setTime}
-        waitFirstItem={waitFirstItem}
+      <Timer
+        gameState={props.gameState}
+        setTime={props.setTime}
+        waitFirstItem={props.waitFirstItem}
       />
-      <p>Score: {score}</p>
-      <p>Steps: {step}</p>
-      <CardBoard
-        time={time}
-        cards={cards}
-        setCards={setCards}
-        flippCard={flippCard}
-        waitFirstItem={waitFirstItem}
-        waitSecondItem={waitSecondItem}
-        unsuccessTwo={unsuccessTwo}
-        gameState={gameState}
-        finished={finished}
-        score={score}
-        step={step}
-        restart={restart}
-        setScore={setScore}
-        setStep={setStep}
-      />
+      <p>Score: {props.score}</p>
+      <p>Steps: {props.step}</p>
+      <CardBoard />
       <Button onClick={() => onClickRestart()}>Restart</Button>
       <Link to="/welcome">
         <Button>New game</Button>
@@ -143,26 +133,19 @@ function GamePage({
 }
 
 export default connect(
-  ({ cards, gameMode, gameState, score, timer }) => ({
-    time: timer.time,
-    cards: cards.cards,
-    game: gameMode.game,
+  ({ gameState, score }) => ({
     gameState: gameState.gameState,
     score: score.score,
     step: score.step,
   }),
   {
     getGameMode: getGameModeAction,
+    getUser: getUserAction,
     setCards: setCardsAction,
-    flippCard: flippCardAction,
     waitFirstItem: waitFirstItemAction,
-    waitSecondItem: waitSecondItemAction,
-    unsuccessTwo: unsuccessTwoAction,
-    finished: finishedAction,
     restart: restartAction,
     setScore: setScoreAction,
     setTime: setTimeAction,
     setStep: setStepAction,
-    getUser: getUserAction,
   }
 )(GamePage);

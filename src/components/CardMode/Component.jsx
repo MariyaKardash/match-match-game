@@ -1,26 +1,32 @@
-import React from 'react'
-import { Wrapper, H3 } from '../styled'
+import React from "react";
+import { Wrapper, H3 } from "../styled";
 
 export function CardMode() {
-    return (
-        <Wrapper>
-        <H3>Theme</H3>
-        <form id='themeRadio'>
-            <div className="form_radio_btn">
-                <input id="numbers" type="radio" name="radio" value="numbers" defaultChecked/>
-                <label htmlFor="numbers">Numbers</label>
-            </div>
-            
-            <div className="form_radio_btn">
-                <input id="cars" type="radio" name="radio" value="cars"/>
-                <label htmlFor="cars">Cars</label>
-            </div>
-            
-            <div className="form_radio_btn">
-                <input id="flowers" type="radio" name="radio" value="flowers"/>
-                <label htmlFor="flowers">Flowers</label>
-            </div>
-        </form>
-        </Wrapper>
-    )
+  return (
+    <Wrapper>
+      <H3>Theme</H3>
+      <form id="themeRadio">
+        <div className="form_radio_btn">
+          <input
+            id="numbers"
+            type="radio"
+            name="radio"
+            value="numbers"
+            defaultChecked
+          />
+          <label htmlFor="numbers">Numbers</label>
+        </div>
+
+        <div className="form_radio_btn">
+          <input id="alphabet" type="radio" name="radio" value="alphabet" />
+          <label htmlFor="alphabet">Alphabet</label>
+        </div>
+
+        <div className="form_radio_btn">
+          <input id="summer" type="radio" name="radio" value="summer" />
+          <label htmlFor="summer">Summer</label>
+        </div>
+      </form>
+    </Wrapper>
+  );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { FINISHED, RESTART, WAIT_SECOND_ITEM } from "../../redux/constants";
 
-export class Stopwatch extends React.Component {
+export class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +21,7 @@ export class Stopwatch extends React.Component {
       this.resetTime();
       this.props.waitFirstItem();
     }
-    if (nextProps.gameState.state === WAIT_SECOND_ITEM && this.state.seconds === 1) {
+    if (nextProps.gameState.state === WAIT_SECOND_ITEM && !this.timerId) {
       this.startTime();
     }
   }
