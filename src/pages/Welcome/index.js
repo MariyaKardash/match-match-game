@@ -17,6 +17,8 @@ function WelcomePage({ user, getUser }) {
   return (
     <>
       <Header />
+      <img src="/images/pages/welcome/Animals.png" alt="animals"></img>
+      <img src="/images/pages/welcome/Floor.svg" alt="animals" width="100%"></img>
       <div className="welcome-container welcome-background-main">
         <div className="main-header header-wrapper">
           WELCOME TO MEMORY GAME

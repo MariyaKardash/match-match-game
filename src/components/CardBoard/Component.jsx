@@ -29,7 +29,6 @@ import { setScoreToLocaleStorage } from "../../localStorage";
 import { store } from "../../redux/store";
 
 import { Card } from "../Card";
-import { Redirect, Route } from "react-router-dom";
 
 function CardBoard(props) {
   function onClickHandler(card, row, column) {

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Header } from "../../components/Header";
 import { Button } from "../../components/styled";
 import { getScoreFromLocaleStorage } from "../../localStorage";
 
@@ -9,6 +10,7 @@ export function RecordsPage() {
   }).slice(0, 5) : null;
   return (
     <>
+    <Header/>
     <table>
       <caption>Top-5 records</caption>
       <thead>
