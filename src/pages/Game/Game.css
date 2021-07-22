@@ -1,0 +1,58 @@
+.game-container {
+  height: calc(100vh - 80px);
+  width: 100%;
+  background-color: #edfff1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-parameters {
+  width: 430px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-button {
+  padding: 8px 20px;
+  border-radius: 2px;
+  font-size: 20px;
+  outline: none;
+  border: 1px solid;
+  cursor: pointer;
+  background: #edfff1;
+  margin: 5px 10px;
+}
+
+.game-button:hover {
+  background: #aed6b8;
+  transition: 1s all ease;
+}
+
+.card-item {
+  background-color: #aed6b8;
+}
+
+.little-card {
+  margin: 3px;
+  font-size: 40px;
+  width: 100px;
+  height: 100px;
+}
+
+.medium-card {
+  margin: 3px;
+  font-size: 30px;
+  width: 70px;
+  height: 70px;
+}
+
+.large-card {
+  margin: 3px;
+  font-size: 20px;
+  width: 55px;
+  height: 55px;
+}

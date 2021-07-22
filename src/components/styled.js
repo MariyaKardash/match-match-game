@@ -51,28 +51,9 @@ export const PageName = styled.h1`
 `;
 
 export const CardDiv = styled.div`
-  height: 50px;
-  width: 50px;
   border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 3px;
-`;
-
-export const Wrapper = styled.div`
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-  width: 350px;
-`;
-
-export const ImageForCard = styled.img`
-  height: 50px;
-  width: 50px;
 `;

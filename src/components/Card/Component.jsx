@@ -1,30 +1,22 @@
 import ReactCardFlip from "react-card-flip";
 import { store } from "../../redux/store";
-import { CardDiv, ImageForCard } from "../styled";
+import { CardDiv } from "../styled";
 
-export function Card({ card }) {
+export function Card({ card, className }) {
   if(store.getState().gameMode.game.cardTheme === 'alphabet' || store.getState().gameMode.game.cardTheme === 'summer') {
     return (
       <ReactCardFlip isFlipped={card.flipped} flipDirection="horizontal">
-        {(card.row + card.column) % 2 ? (
-          <CardDiv className="rose" />
-        ) : (
-          <CardDiv className="violet" />
-        )}
+        <img src='/images/pages/game/Flower.svg' alt="flower" className={`card-item ${className}`}/>
   
-        <ImageForCard src={card.value}/>
+        <img src={card.value} alt="card" className={className}/>
       </ReactCardFlip>
     );
   }
   return (
     <ReactCardFlip isFlipped={card.flipped} flipDirection="horizontal">
-      {(card.row + card.column) % 2 ? (
-        <CardDiv className="rose" />
-      ) : (
-        <CardDiv className="violet" />
-      )}
+<img src='/images/pages/game/Flower.svg' alt="flower" className={`card-item ${className}`}/>
 
-      <CardDiv>{card.value}</CardDiv>
+      <CardDiv className={className}>{card.value}</CardDiv>
     </ReactCardFlip>
   );
 }

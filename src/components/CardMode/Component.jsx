@@ -1,9 +1,8 @@
 import React from "react";
-import { Wrapper } from "../styled";
 
 export function CardMode() {
   return (
-    <Wrapper>
+    <div className="wrapper">
       <h3>Theme</h3>
       <form id="themeRadio">
         <div className="form_radio_btn">
@@ -27,6 +26,6 @@ export function CardMode() {
           <label htmlFor="summer">Summer</label>
         </div>
       </form>
-    </Wrapper>
+    </div>
   );
 }

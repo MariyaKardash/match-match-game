@@ -2,12 +2,13 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import "./Game.css";
+
 import { store } from "../../redux/store";
 
 import { Timer } from "../../components/Timer";
 import { Header } from "../../components/Header";
 import CardBoard from "../../components/CardBoard/Component";
-import { Button } from "../../components/styled";
 
 import { setCards as setCardsAction } from "../../redux/actions/cards";
 
@@ -52,7 +53,7 @@ function fillArray(length, array = null) {
   let newCards = createArray(length, length);
   let indices = [];
   if (array) {
-    let newArray = array.slice(0, length**2/2)
+    let newArray = array.slice(0, length ** 2 / 2);
     indices = [...newArray, ...newArray];
   } else {
     for (let index = 0; index < length * length; index++) {
@@ -79,11 +80,11 @@ function renderCards(props) {
     case "numbers":
       props.setCards(fillArray(store.getState().gameMode.game.difficulty));
       break;
-      case "alphabet":
-        props.setCards(
-          fillArray(store.getState().gameMode.game.difficulty, alphabet)
-        );
-        break;
+    case "alphabet":
+      props.setCards(
+        fillArray(store.getState().gameMode.game.difficulty, alphabet)
+      );
+      break;
     case "summer":
       props.setCards(
         fillArray(store.getState().gameMode.game.difficulty, summer)
@@ -115,19 +116,32 @@ function GamePage(props) {
   return (
     <>
       <Header />
-      <h1>Game page</h1>
-      <Timer
-        gameState={props.gameState}
-        setTime={props.setTime}
-        waitFirstItem={props.waitFirstItem}
-      />
-      <p>Score: {props.score}</p>
-      <p>Steps: {props.step}</p>
-      <CardBoard />
-      <Button onClick={() => onClickRestart()}>Restart</Button>
-      <Link to="/welcome">
-        <Button>New game</Button>
-      </Link>
+      <div className="game-container">
+        <div className="game-parameters">
+          <div className="timer">
+            <h3>Time:</h3>
+            <Timer
+              gameState={props.gameState}
+              setTime={props.setTime}
+              waitFirstItem={props.waitFirstItem}
+            />
+          </div>
+
+          <div className="scores-steps">
+            <h3>Score: {props.score}</h3>
+            <h3>Steps: {props.step}</h3>
+          </div>
+        </div>
+
+        <CardBoard />
+
+        <div className="game-buttons">
+          <button onClick={() => onClickRestart()} className="game-button">Restart</button>
+          <Link to="/welcome">
+            <button className="game-button">New game</button>
+          </Link>
+        </div>
+      </div>
     </>
   );
 }
