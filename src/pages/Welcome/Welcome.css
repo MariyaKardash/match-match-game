@@ -1,0 +1,103 @@
+.welcome-container {
+  width: 100%;
+  height: calc(100vh - 80px);
+  position: relative;
+}
+
+.animals-wrapper {
+  z-index: 99;
+  position: absolute;
+  left: 40%;
+  bottom: 5%;
+}
+
+.animals-image {
+  width: 100%;
+  height: 500px;
+}
+
+.floor-wrapper {
+    z-index: 2;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 70%;
+}
+
+.floor-image {
+  width: 100%;
+  height: 200px;
+}
+
+.welcome-header {
+    max-width: 500px;
+    font-weight: bold;
+    font-size: 61.96px;
+}
+
+.welcome-text {
+    position: absolute;
+    left: 7%;
+    top: 10%;
+}
+
+.rules-container {
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: row;
+    margin-left: 70px;
+    align-items: center;
+    position: relative;
+}
+
+.left-part-rules {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+}
+
+.rules-list {
+    margin: 10px 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rabbit-image {
+    position: absolute;
+    bottom: 0;
+    z-index: 4;
+    right: 5%;
+}
+
+.wall-image {
+    position: absolute;
+    right: 0;
+    bottom:0;
+    height: 100vh;
+    z-index: 0;
+}
+
+.plant-1-image {
+    position: absolute;
+    z-index: 2;
+    bottom:10%;
+    right: 20%;
+}
+
+.plant-2-image {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom:10%;
+}
+
+.plant-3-image {
+    position: absolute;
+    z-index: 2;
+    left: -20%;
+    top:0;
+}

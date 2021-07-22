@@ -7,37 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.header-wrapper {
-	background: linear-gradient(-45deg, #9975FF, #7751C8,  #53209F, #7751C8, #9975FF);
-	background-size: 400% 400%;
-	animation: gradient 30s ease infinite;
-}
-
-.welcome-background-main {
-  background: url(background.jpg) no-repeat rgb(232, 211, 255);
-  background-size: 100% calc(100vh - 90px);
-}
-
-.welcome-background-second {
-  height: 100vh;
-}
-
-.rose {
-  background-color: #9975FF;
-}
-
-.violet {
-  background-color: #53209F;
-}
-
-.welcome-container {
-  width: 100%;
-  height: calc(100vh - 90px);
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Unkempt', cursive;
 }
 
 .main-header {
@@ -55,18 +29,6 @@ body {
   position: absolute;
   left: 0;
   top: 250px;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
 }
 
 code {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './Header.css'
 import { Link } from "react-router-dom";
 import { Button } from "../Button/Button";
@@ -17,13 +17,16 @@ export function Header() {
       }
   }
 
+  useEffect(() => {
+    showButton()
+  }, [])
+
   window.addEventListener('resize', showButton)
-  window.addEventListener("load", showButton);
   return (
     <>
       <nav className="navbar">
         <div className="navbar-container">
-          <Link to="/welcome" className="navbar-logo">
+          <Link to="/welcome" className="navbar-logo" onClick={closeMobileMenu}>
             MMG <i className="fas fa-gamepad"></i>
           </Link>
           <div className="menu-icon" onClick={onClickMenuIcon}>
