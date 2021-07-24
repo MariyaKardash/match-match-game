@@ -21,6 +21,21 @@ export function Header() {
     showButton()
   }, [])
 
+  function onClickHome() {
+    closeMobileMenu();
+    window.scrollTo(0, 0);
+  }
+
+  function onClickRules() {
+    closeMobileMenu();
+    window.scrollTo(0, 709);
+  }
+
+  function onClickStart() {
+    closeMobileMenu();
+    window.scrollTo(0, 1418);
+  }
+
   window.addEventListener('resize', showButton)
   return (
     <>
@@ -37,7 +52,7 @@ export function Header() {
               <Link
                 to="/welcome"
                 className="nav-links"
-                onClick={closeMobileMenu}
+                onClick={onClickHome}
               >
                 Home
               </Link>
@@ -55,7 +70,7 @@ export function Header() {
               <Link
                 to="/welcome"
                 className="nav-links"
-                onClick={closeMobileMenu}
+                onClick={onClickRules}
               >
                 Rules
               </Link>
@@ -64,13 +79,13 @@ export function Header() {
               <Link
                 to="/welcome"
                 className="nav-links-mobile"
-                onClick={closeMobileMenu}
+                onClick={onClickStart}
               >
                 Get started
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle="btn-outline">Get started</Button>}
+          {button && <Button buttonStyle="btn-outline" onClick={onClickStart}>Get started</Button>}
         </div>
       </nav>
     </>
