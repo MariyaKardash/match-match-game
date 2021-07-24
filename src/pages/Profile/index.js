@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { Header } from "../../components/Header";
 
 import { getUser as getUserAction } from "../../redux/actions/user";
-import { getScoreFromLocaleStorage } from "../../localStorage";
+import { getScoreFromLocalStorage } from "../../localStorage";
 
 import "./Profile.css";
 import { useEffect } from "react";
@@ -17,8 +17,8 @@ function ProfilePage({ user, getUser }) {
     localStorage.removeItem("user");
   }
 
-  let records = getScoreFromLocaleStorage()
-    ? getScoreFromLocaleStorage()
+  let records = getScoreFromLocalStorage()
+    ? getScoreFromLocalStorage()
         .sort((a, b) => {
           if (
             a.score.step > b.score.step ||

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import './Header.css'
 import { Link } from "react-router-dom";
-
-import { store } from "../../redux/store";
 import { Button } from "../Button/Button";
+
+import { getUserFromLocalStorage } from "../../localStorage";
 
 export function Header() {
   const [click, setClick] = useState(false);
@@ -59,7 +59,7 @@ export function Header() {
                 Home
               </Link>
             </li>
-            <li className="nav-item">
+            {getUserFromLocalStorage() ? <li className="nav-item">
               <Link
                 to="/profile"
                 className="nav-links"
@@ -67,7 +67,7 @@ export function Header() {
               >
                 Profile
               </Link>
-            </li>
+            </li> : ''}
             <li className="nav-item">
               <Link
                 to="/welcome"

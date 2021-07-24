@@ -1,12 +1,11 @@
-import { getScoreFromLocaleStorage } from "../../localStorage";
+import { getScoreFromLocalStorage } from "../../localStorage";
 
 import "./Congratulations.css";
 import { Header } from "../../components/Header";
-import { Button } from "../../components/styled";
 import { Link } from "react-router-dom";
 
 export function CongratulationsPage() {
-  let scoreRecords = getScoreFromLocaleStorage();
+  let scoreRecords = getScoreFromLocalStorage();
 
   let lastRecord = scoreRecords[scoreRecords.length - 1];
 

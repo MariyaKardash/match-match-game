@@ -23,6 +23,14 @@ export const summer = [
   "/images/summer/summer22.png",
   "/images/summer/summer23.png",
   "/images/summer/summer24.png",
+  "/images/summer/summer1.png",
+  "/images/summer/summer2.png",
+  "/images/summer/summer3.png",
+  "/images/summer/summer4.png",
+  "/images/summer/summer5.png",
+  "/images/summer/summer6.png",
+  "/images/summer/summer7.png",
+  "/images/summer/summer8.png",
 ];
 
 export const alphabet = [
@@ -52,4 +60,10 @@ export const alphabet = [
   "/images/alphabet/alphabet24.png",
   "/images/alphabet/alphabet25.png",
   "/images/alphabet/alphabet26.png",
+  "/images/alphabet/alphabet1.png",
+  "/images/alphabet/alphabet2.png",
+  "/images/alphabet/alphabet3.png",
+  "/images/alphabet/alphabet4.png",
+  "/images/alphabet/alphabet5.png",
+  "/images/alphabet/alphabet6.png",
 ];

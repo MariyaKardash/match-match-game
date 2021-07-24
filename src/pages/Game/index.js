@@ -136,7 +136,9 @@ function GamePage(props) {
         <CardBoard />
 
         <div className="game-buttons">
-          <button onClick={() => onClickRestart()} className="game-button">Restart</button>
+          <button onClick={() => onClickRestart()} className="game-button">
+            Restart
+          </button>
           <Link to="/welcome">
             <button className="game-button">New game</button>
           </Link>

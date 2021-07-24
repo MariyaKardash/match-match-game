@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 import "./Records.css";
 import { Header } from "../../components/Header";
-import { getScoreFromLocaleStorage } from "../../localStorage";
+import { getScoreFromLocalStorage } from "../../localStorage";
 import { getGameModeFromLocalStorage } from "../../localStorage";
 
 export function RecordsPage() {
-  let records = getScoreFromLocaleStorage()
-    ? getScoreFromLocaleStorage()
+  let records = getScoreFromLocalStorage()
+    ? getScoreFromLocalStorage()
         .sort((a, b) => {
           if (
             a.score.step > b.score.step ||

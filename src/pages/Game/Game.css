@@ -36,22 +36,23 @@
   background-color: #aed6b8;
 }
 
-.little-card {
+.margin {
   margin: 3px;
+}
+
+.little-card {
   font-size: 40px;
   width: 100px;
   height: 100px;
 }
 
 .medium-card {
-  margin: 3px;
   font-size: 30px;
   width: 70px;
   height: 70px;
 }
 
 .large-card {
-  margin: 3px;
   font-size: 20px;
   width: 55px;
   height: 55px;
