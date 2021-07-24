@@ -1,0 +1,53 @@
+.records-container {
+    width: 100%;
+    height: calc(100vh - 80px);
+    position: relative;
+    display: flex;
+}
+
+.records-left-part {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.records-right-part {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    background: #FFBAB4;
+}
+
+.buterfly-image {
+    margin-bottom: 20px;
+}
+
+
+.records-button {
+    padding: 8px 20px;
+    border-radius: 2px;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid #7C6063;
+    cursor: pointer;
+    background: #FFBAB4;
+    margin: 5px 10px;
+    margin-top: 20px;
+}
+  
+  .records-button:hover {
+    background: #FF9E96;
+    transition: 1s all ease;
+  }
+
+  .table-padding {
+      padding: 3px 10px;
+      max-width: 250px;
+  }
+
+  .records-header {
+      font-size: 40px;
+      padding: 5px;
+  }

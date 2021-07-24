@@ -1,10 +1,18 @@
 import { Header } from "../../components/Header";
 
+import './Profile.css'
+
 export function ProfilePage() {
   return (
     <>
       <Header />
-      <h1>Profile page</h1>
+      <div className="profile-container">
+      <img
+        src="/images/pages/profile/Bear-profile.svg"
+        alt="bear"
+        className="bear-profile-image"
+      ></img>
+      </div>
     </>
   );
 }
