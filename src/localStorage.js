@@ -14,3 +14,7 @@ export const setScoreToLocaleStorage = (mode, time, score, user) => {
     : [lastScore];
   window.localStorage.setItem("scores", JSON.stringify(allScores));
 };
+
+export function getGameModeFromLocalStorage() {
+  return JSON.parse(window.localStorage.getItem("gameMode")) || null;
+}

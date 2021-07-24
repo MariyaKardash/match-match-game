@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import './Header.css'
 import { Link } from "react-router-dom";
+
+import { store } from "../../redux/store";
 import { Button } from "../Button/Button";
 
 export function Header() {

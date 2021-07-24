@@ -13,8 +13,8 @@ function ProfilePage({ user, getUser }) {
     getUser();
   }, [getUser]);
 
-  function onClickExit () {
-    localStorage.removeItem('user');
+  function onClickExit() {
+    localStorage.removeItem("user");
   }
 
   let records = getScoreFromLocaleStorage()
@@ -30,52 +30,57 @@ function ProfilePage({ user, getUser }) {
         .filter((elem) => elem.user.email === user.email)
         .slice(0, 5)
     : null;
+
   return (
     <>
       <Header />
       <div className="profile-container">
         <div className="profile-content">
-<div className="profile-text">
-          <h1 className="profile-header">
-            Welcome, {user.secondName} {user.firstName}!
-          </h1>
-          <p>Your email: {user.email}</p>
-          <Link to="/welcome"><button className="btn profile-button" onClick={onClickExit}>Exit</button>
-          </Link>
-          
+          <div className="profile-text">
+            <h1 className="profile-header">
+              Welcome, {user.secondName} {user.firstName}!
+            </h1>
+            <p>Your email: {user.email}</p>
+            <Link to="/welcome">
+              <button className="btn profile-button" onClick={onClickExit}>
+                Exit
+              </button>
+            </Link>
+          </div>
+          <div className="profile-records">
+            <h1>Top-5 your records</h1>
+            {records.length
+                  ?
+            <table>
+              <thead>
+                <tr>
+                  <th className="table-padding">Card theme</th>
+                  <th className="table-padding">Difficulty</th>
+                  <th className="table-padding">Steps</th>
+                  <th className="table-padding">Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                {records.map((elem, index) => (
+                      <tr key={index}>
+                        <td className="table-padding">{elem.mode.cardTheme}</td>
+                        <td className="table-padding">
+                          {elem.mode.difficulty}
+                        </td>
+                        <td className="table-padding">{elem.score.step}</td>
+                        <td className="table-padding">{elem.time}</td>
+                      </tr>
+                    ))}
+              </tbody>
+            </table> : <div>List is empty...</div>}
+          </div>
+          <img
+            src="/images/pages/profile/Bear-profile.svg"
+            alt="bear"
+            className="bear-profile-image"
+          ></img>
         </div>
-        <div className="profile-records">
-          <table>
-            <caption className="records-header">Top-5 your records</caption>
-            <thead>
-              <tr>
-                <th className="table-padding">Card theme</th>
-                <th className="table-padding">Difficulty</th>
-                <th className="table-padding">Steps</th>
-                <th className="table-padding">Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              {records
-                ? records.map((elem, index) => (
-                    <tr key={index}>
-                      <td className="table-padding">{elem.mode.cardTheme}</td>
-                      <td className="table-padding">{elem.mode.difficulty}</td>
-                      <td className="table-padding">{elem.score.step}</td>
-                      <td className="table-padding">{elem.time}</td>
-                    </tr>
-                  ))
-                : ""}
-            </tbody>
-          </table>
-        </div>
-        <img
-          src="/images/pages/profile/Bear-profile.svg"
-          alt="bear"
-          className="bear-profile-image"
-        ></img>
       </div>
-        </div>
     </>
   );
 }

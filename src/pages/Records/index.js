@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Records.css";
 import { Header } from "../../components/Header";
 import { getScoreFromLocaleStorage } from "../../localStorage";
+import { getGameModeFromLocalStorage } from "../../localStorage";
 
 export function RecordsPage() {
   let records = getScoreFromLocaleStorage()
@@ -15,8 +16,13 @@ export function RecordsPage() {
             return 1;
           else return -1;
         })
+        .filter(
+          (elem) =>
+            +elem.mode.difficulty === +getGameModeFromLocalStorage().difficulty
+        )
         .slice(0, 5)
     : null;
+
   return (
     <>
       <Header />
@@ -27,9 +33,11 @@ export function RecordsPage() {
             alt="buterfly"
             className="buterfly-image"
           ></img>
-          <table>
-            <caption className="records-header">Top-5 records</caption>
-            <thead>
+          <h1 className="records-header">Top-5 records</h1>
+          <h3>In this difficulty ({getGameModeFromLocalStorage().difficulty}) </h3>
+          {records.length
+                ?
+          (<table><thead>
               <tr>
                 <th className="table-padding">User name</th>
                 <th className="table-padding">Steps</th>
@@ -37,8 +45,7 @@ export function RecordsPage() {
               </tr>
             </thead>
             <tbody>
-              {records
-                ? records.map((elem, index) => (
+              {records.map((elem, index) => (
                     <tr key={index}>
                       <td className="table-padding">
                         {elem.user.firstName} {elem.user.secondName}
@@ -46,10 +53,9 @@ export function RecordsPage() {
                       <td className="table-padding">{elem.score.step}</td>
                       <td className="table-padding">{elem.time}</td>
                     </tr>
-                  ))
-                : ""}
+                  ))}
             </tbody>
-          </table>
+          </table>) : <div>List is empty...</div>}
           <Link to="/welcome">
             <button className="btn records-button">New game</button>
           </Link>
