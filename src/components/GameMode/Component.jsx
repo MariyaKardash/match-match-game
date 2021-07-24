@@ -33,7 +33,7 @@ function GameMode(props) {
       <Difficulty />
       <CardMode />
       <Link to="/game">
-        <button className="start-game-button" onClick={() => onClickButton(props)}>Start game</button>
+        <button disabled={props.disabled} className="start-game-button" onClick={() => onClickButton(props)}>Start game</button>
       </Link>
     </div>
   );

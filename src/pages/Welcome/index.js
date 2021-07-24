@@ -130,14 +130,16 @@ function WelcomePage({ user, getUser }) {
           
         <div className="form-wrapper">
           {user && Object.keys(user).length ? (
+            <>
             <h1>{user.firstName}, welcome to Match-Match Game</h1>
+            <GameMode />
+            </>
           ) : (
             <>
               <h1>Welcome to Match-Match Game</h1>
               <WelcomeInput />
             </>
           )}
-          <GameMode />
         </div>
         </div>
       </div>
