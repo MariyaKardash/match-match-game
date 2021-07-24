@@ -1,29 +1,49 @@
 import { getScoreFromLocaleStorage } from "../../localStorage";
+
+import "./Congratulations.css";
 import { Header } from "../../components/Header";
 import { Button } from "../../components/styled";
 import { Link } from "react-router-dom";
 
 export function CongratulationsPage() {
-    let scoreRecords = getScoreFromLocaleStorage();
+  let scoreRecords = getScoreFromLocaleStorage();
 
-    let lastRecord = scoreRecords[scoreRecords.length - 1];
+  let lastRecord = scoreRecords[scoreRecords.length - 1];
 
-    return(
+  return (
     <>
-        <Header/>
-        <h1>{lastRecord.user.firstName}, CONGRATULATIONS!</h1>
-        <h3>You win!!!</h3>
-        <div>Difficulty: {lastRecord.mode.difficulty}</div>
-        <div>Card theme: {lastRecord.mode.cardTheme}</div>
-        <div>Time: {lastRecord.time}</div>
-        <div>Steps: {lastRecord.score.step}</div>
+      <Header />
+      <div className="congrat-container">
+        <img
+          src="/images/pages/congratulations/Wall-congrat.svg"
+          alt="wall"
+          className="wall-congrat-image"
+        ></img>
+        <img
+          src="/images/pages/congratulations/Animals-congrat.svg"
+          alt="animals"
+          className="animals-congrat-image"
+        ></img>
+        <div className="congrat-text">
+          <div className="congrat-description">
+            <h1>{lastRecord.user.firstName}, congratulations!</h1>
+            <h3>You won:)</h3>
+            <div>Difficulty: {lastRecord.mode.difficulty}</div>
+            <div>Card theme: {lastRecord.mode.cardTheme}</div>
+            <div>Time: {lastRecord.time}</div>
+            <div>Steps: {lastRecord.score.step}</div>
+          </div>
 
-        <Link to="/records">
-        <Button>Records</Button>
-      </Link>
-      <Link to="/welcome">
-        <Button>New game</Button>
-      </Link>
+          <div className="congrat-buttons">
+            <Link to="/records">
+              <button className="btn congrat-button">Records</button>
+            </Link>
+            <Link to="/welcome">
+              <button className="btn congrat-button">New game</button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </>
-    )
+  );
 }

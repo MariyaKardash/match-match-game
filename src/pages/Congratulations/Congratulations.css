@@ -1,0 +1,59 @@
+.congrat-container {
+    width: 100%;
+    height: calc(100vh - 80px);
+    position: relative;
+}
+
+.wall-congrat-image {
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+}
+
+.animals-congrat-image {
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    left: 5%;
+}
+
+.congrat-text {
+    position: absolute;
+    z-index: 20;
+    right: 20%;
+    top: 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.congrat-description {
+    background: #FFE3A6;
+    padding: 20px 40px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 1px solid #7C6063;
+}
+
+.congrat-button {
+    padding: 8px 20px;
+    border-radius: 2px;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid #7C6063;
+    cursor: pointer;
+    background: #FFE3A6;
+    margin: 5px 10px;
+  }
+  
+  .congrat-button:hover {
+    background: #F1BC68;
+    transition: 1s all ease;
+  }
