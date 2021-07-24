@@ -5,7 +5,7 @@ import WelcomePage from "./pages/Welcome";
 import { CongratulationsPage } from "./pages/Congratulations";
 import GamePage from "./pages/Game";
 import { NotFoundPage } from "./pages/NotFound";
-import { ProfilePage } from "./pages/Profile";
+import ProfilePage from "./pages/Profile";
 import { RecordsPage } from "./pages/Records";
 
 function App() {

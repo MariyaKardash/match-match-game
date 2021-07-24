@@ -51,3 +51,7 @@
       font-size: 40px;
       padding: 5px;
   }
+
+  .records-left-part td {
+    text-align: center;
+}

@@ -21,7 +21,7 @@
   width: 100%;
   position: absolute;
   left: 0;
-  top: 70%;
+  bottom: 0;
 }
 
 .floor-image {
