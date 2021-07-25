@@ -15,7 +15,7 @@ function WelcomePage({ user, getUser }) {
   }, [getUser]);
 
   return (
-    <div>
+    <>
       <Header />
       <div className="welcome-container">
         <div className="welcome-text">
@@ -24,20 +24,16 @@ function WelcomePage({ user, getUser }) {
             Have fun and develop your memory at the same time
           </h2>
         </div>
-        <div className="animals-wrapper">
           <img
             src="/images/pages/welcome/Animals.svg"
             alt="animals"
             className="animals-image"
           ></img>
-        </div>
-        <div className="floor-wrapper">
           <img
             src="/images/pages/welcome/Floor.svg"
             alt="floor"
             className="floor-image"
           ></img>
-        </div>
       </div>
 
       <div className="rules-container">
@@ -143,7 +139,7 @@ function WelcomePage({ user, getUser }) {
         </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

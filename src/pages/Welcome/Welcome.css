@@ -4,35 +4,29 @@
   position: relative;
 }
 
-.animals-wrapper {
-  z-index: 99;
-  position: absolute;
-  left: 40%;
-  bottom: 5%;
-}
-
 .animals-image {
-  width: 100%;
-  height: 500px;
-}
-
-.floor-wrapper {
-  z-index: 2;
-  width: 100%;
   position: absolute;
-  left: 0;
-  bottom: 0;
+  max-width: 100%;
+  max-height: 500px;
+  bottom: 0%;
+  z-index: 20;
+  right: 20%;
 }
 
 .floor-image {
   width: 100%;
   height: 250px;
+  position: absolute;
+  left: 0;
+  bottom: -1%;
+  z-index: 2;
 }
 
 .welcome-header {
   max-width: 500px;
   font-weight: bold;
   font-size: 61.96px;
+  z-index: 50;
 }
 
 .welcome-text {
@@ -57,6 +51,7 @@
   align-items: center;
   max-width: 600px;
   margin-left: 50px;
+  z-index: 30;
 }
 
 .rules-list {
@@ -72,6 +67,7 @@
   bottom: 0;
   z-index: 4;
   right: 5%;
+  width: 40%;
 }
 
 .wall-image {
@@ -87,6 +83,7 @@
   z-index: 2;
   bottom: 10%;
   right: 20%;
+  width: 40%;
 }
 
 .plant-2-image {
@@ -94,6 +91,7 @@
   z-index: 2;
   right: 0;
   bottom: 10%;
+  width: 40%;
 }
 
 .plant-3-image {
@@ -101,6 +99,7 @@
   z-index: 2;
   left: -15%;
   top: 0;
+  width: 30%;
 }
 
 .get-started-container {
@@ -118,6 +117,7 @@
   justify-content: center;
   align-items: center;
   width: 50%;
+  height: 100%;
 }
 
 .left-part-start-game {
@@ -154,6 +154,9 @@
   border-radius: 2px;
   user-select: none;
 }
+.welcome-text h1, .welcome-text h2 {
+  text-align: center;
+}
 
 .form_radio_btn input[type="radio"]:checked + label {
   background: #bfdae4;
@@ -163,4 +166,69 @@
 .form_radio_btn label:hover {
   background-color: #e7f8ff;
   transition: 0.5s all ease;
+}
+
+.form-wrapper h1 {
+  text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+  .left-part-start-game {
+    display: none;
+  }
+  .right-part-start-game {
+    width: 100%;
+  }
+  .wall-image {
+    display: none;
+  }
+  .left-part-rules {
+    margin: 0;
+  }
+  .rules-container {
+    margin: 0;
+    padding: 10px;
+    background-color: #DEDCFF;
+  }
+  .plant-3-image {
+    display: none;
+  }
+
+  .left-part-rules {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
+  }
+  .animals-image {
+    right: 0%;
+    left: 10%;
+    width: 70%
+  }
+  .welcome-text {
+    position: relative;
+    left: 0;
+  }
+  .welcome-container {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .animals-image {
+    right: 10%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .animals-image {
+    width: 90%
+  }
+  .floor-image {
+    bottom: -5%
+  }
 }
