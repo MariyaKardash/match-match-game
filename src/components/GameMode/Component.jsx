@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import './GameMode.css'
+
 import {
   setUser as setUserAction,
 } from "../../redux/actions/user";
@@ -11,7 +13,6 @@ import {
 
 import { Difficulty } from "../Difficulty";
 import { CardMode } from "../CardMode";
-import { Button, Wrapper, H3 } from "../styled";
 import { connect } from "react-redux";
 
 function onClickButton(props) {
@@ -31,18 +32,14 @@ function GameMode(props) {
     <div className="game-mode-container">
       <Difficulty />
       <CardMode />
-      <Wrapper>
-        <H3>Rules</H3>
-        <p>Rules will be here</p>
-      </Wrapper>
       <Link to="/game">
-        <Button onClick={() => onClickButton(props)}>Start game</Button>
+        <button disabled={props.disabled} className="start-game-button" onClick={() => onClickButton(props)}>Start game</button>
       </Link>
     </div>
   );
 }
 
 export default connect(({ user }) => ({ user: user.user }), {
-  setUset: setUserAction,
+  setUser: setUserAction,
   setGameMode: setGameModeAction,
 })(GameMode);

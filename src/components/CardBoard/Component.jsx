@@ -79,6 +79,8 @@ function CardBoard(props) {
     }
   }
 
+  let className = props.cards.length === 6 ? 'medium-card' : props.cards.length === 4 ? 'little-card' : 'large-card';
+
   return (
     <table>
       <tbody>
@@ -89,7 +91,7 @@ function CardBoard(props) {
                 key={indexOfColumn}
                 onClick={() => onClickHandler(card, indexOfRow, indexOfColumn)}
               >
-                <Card card={card} />
+                <Card card={card} className={className}/>
               </td>
             ))}
           </tr>

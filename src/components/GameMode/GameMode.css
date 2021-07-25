@@ -1,0 +1,46 @@
+.start-game-button {
+        padding: 8px 20px;
+        border-radius: 2px;
+        font-size: 20px;
+        outline: none;
+        border: 1px solid ;
+        cursor: pointer;
+        background: #E7F8FF;
+        margin-top: 5px;
+}
+
+.start-game-button:hover {
+    background: #BFDAE4;
+    transition: 1s all ease;
+}
+
+.difficultySelect {
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 2px;
+    border: 1px solid black;
+    border-radius: 2px;
+    outline: none;
+}
+
+.wrapper {
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 2px;
+    border: 1px solid black;
+    border-radius: 2px;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+}
+
+.card-item {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3px;
+}

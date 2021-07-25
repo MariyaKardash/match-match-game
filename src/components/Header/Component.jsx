@@ -3,6 +3,8 @@ import './Header.css'
 import { Link } from "react-router-dom";
 import { Button } from "../Button/Button";
 
+import { getUserFromLocalStorage } from "../../localStorage";
+
 export function Header() {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -21,6 +23,21 @@ export function Header() {
     showButton()
   }, [])
 
+  function onClickHome() {
+    closeMobileMenu();
+    window.scrollTo(0, 0);
+  }
+
+  function onClickRules() {
+    closeMobileMenu();
+    window.scrollTo(0, 709);
+  }
+
+  function onClickStart() {
+    closeMobileMenu();
+    window.scrollTo(0, 1418);
+  }
+
   window.addEventListener('resize', showButton)
   return (
     <>
@@ -37,12 +54,12 @@ export function Header() {
               <Link
                 to="/welcome"
                 className="nav-links"
-                onClick={closeMobileMenu}
+                onClick={onClickHome}
               >
                 Home
               </Link>
             </li>
-            <li className="nav-item">
+            {getUserFromLocalStorage() ? <li className="nav-item">
               <Link
                 to="/profile"
                 className="nav-links"
@@ -50,12 +67,12 @@ export function Header() {
               >
                 Profile
               </Link>
-            </li>
+            </li> : ''}
             <li className="nav-item">
               <Link
                 to="/welcome"
                 className="nav-links"
-                onClick={closeMobileMenu}
+                onClick={onClickRules}
               >
                 Rules
               </Link>
@@ -64,13 +81,13 @@ export function Header() {
               <Link
                 to="/welcome"
                 className="nav-links-mobile"
-                onClick={closeMobileMenu}
+                onClick={onClickStart}
               >
                 Get started
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle="btn-outline">Get started</Button>}
+          {button && <Button buttonStyle="btn-outline" onClick={onClickStart}>Get started</Button>}
         </div>
       </nav>
     </>

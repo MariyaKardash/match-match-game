@@ -15,7 +15,7 @@ function WelcomePage({ user, getUser }) {
   }, [getUser]);
 
   return (
-    <div>
+    <>
       <Header />
       <div className="welcome-container">
         <div className="welcome-text">
@@ -24,20 +24,16 @@ function WelcomePage({ user, getUser }) {
             Have fun and develop your memory at the same time
           </h2>
         </div>
-        <div className="animals-wrapper">
           <img
             src="/images/pages/welcome/Animals.svg"
             alt="animals"
             className="animals-image"
           ></img>
-        </div>
-        <div className="floor-wrapper">
           <img
             src="/images/pages/welcome/Floor.svg"
             alt="floor"
             className="floor-image"
           ></img>
-        </div>
       </div>
 
       <div className="rules-container">
@@ -105,7 +101,7 @@ function WelcomePage({ user, getUser }) {
             alt="wall"
             className="wall-image"
           ></img>
-            <img
+          <img
             src="/images/pages/welcome/Plant-2.svg"
             alt="plant"
             className="plant-3-image"
@@ -114,17 +110,36 @@ function WelcomePage({ user, getUser }) {
       </div>
 
       <div className="get-started-container">
-        {user && Object.keys(user).length ? (
-          <h1>{user.firstName}, welcome to Match-Match Game</h1>
-        ) : (
-          <>
-            <h1>Welcome to Match-Match Game</h1>
-            <WelcomeInput />
-          </>
-        )}
-        <GameMode />
+      <div className="left-part-start-game">
+          <img
+            src="/images/pages/welcome/Bear.svg"
+            alt="bear"
+            className="bear-image"
+          ></img>
+        </div>
+        <div className="right-part-start-game">
+          <div className="cloud-wrapper"><img
+            src="/images/pages/welcome/Cloud.svg"
+            alt="cloud"
+            className="cloud-image"
+          ></img></div>
+          
+        <div className="form-wrapper">
+          {user && Object.keys(user).length ? (
+            <>
+            <h1>{user.firstName}, welcome to Match-Match Game</h1>
+            <GameMode />
+            </>
+          ) : (
+            <>
+              <h1>Welcome to Match-Match Game</h1>
+              <WelcomeInput />
+            </>
+          )}
+        </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
