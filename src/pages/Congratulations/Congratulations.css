@@ -17,6 +17,7 @@
     z-index: 10;
     bottom: 0;
     left: 5%;
+    width: 50%;
 }
 
 .congrat-text {
@@ -57,3 +58,38 @@
     background: #F1BC68;
     transition: 1s all ease;
   }
+
+  @media screen and (max-width: 1300px) {
+      .congrat-text {
+          right: 10%
+      }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .wall-congrat-image {
+        display: none;
+    }
+    .animals-congrat-image {
+        width: 60%;
+        left: 20%;
+        right: 20%;
+    }
+    
+    .congrat-text {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 40px;
+    }
+    .congrat-container {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .animals-congrat-image {
+        width: 70%;
+    }
+}
