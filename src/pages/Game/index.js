@@ -104,6 +104,7 @@ function GamePage(props) {
     return () => {
       onClickRestart();
     };
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function onClickRestart() {

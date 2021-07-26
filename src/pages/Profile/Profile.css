@@ -56,7 +56,7 @@
       .profile-container {
           display: flex;
           justify-content: center;
-          align-items: start;
+          align-items: flex-start;
       }
       .bear-profile-image {
           width: 60%;
